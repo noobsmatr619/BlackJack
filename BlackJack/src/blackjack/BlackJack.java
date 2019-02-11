@@ -68,7 +68,7 @@ try {
 				System.out.println("Dealer has: " + dealerCards.cardGetter(0).toString() + " and [hidden]");
 
 				//What do they want to do
-				System.out.println("What would you do (1)Hit or (2)Stand");
+				System.out.println("What would you do (1)Hit or (2)Stand or any letter to quite the game");
 				int response = userInput.nextInt();
 				//They hit
 				if(response == 1){
@@ -145,7 +145,7 @@ catch(Exception e) {
 		//Game loop
 
 		//Game is over
-		System.out.println("Game over!");
+		System.out.println("Game over! You have £" + money + ", thanks for playing");
 
 		//Close Scanner
 		userInput.close();
