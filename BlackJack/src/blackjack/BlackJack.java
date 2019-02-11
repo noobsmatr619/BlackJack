@@ -31,11 +31,13 @@ public class BlackJack {
 
 		//Scanner for user input
 		Scanner userInput = new Scanner(System.in);
+exception:{
 try {
   //  Block of code to try
+ 
   while(money>0 ){
 	//Take Bet
-	System.out.println("You have £" + money + ", how much to bet?");
+	System.out.println("You have £" + money + ", press number to bet money and any letter to quite the game");
 	double bet = userInput.nextDouble();
 	boolean endRound = false;
 	if(bet > money){
@@ -132,17 +134,18 @@ try {
 			System.out.println("End of Hand.");
 
 		}
+  
 }
 catch(Exception e) {
-    System.out.println("Input only Numbers please");
-    main(args);
+    
+  break exception;
    
-}
+}}
 		//Play the game while the player has money
 		//Game loop
 
 		//Game is over
-		System.out.println("Game over! You lost all your money. :(");
+		System.out.println("Game over!");
 
 		//Close Scanner
 		userInput.close();
