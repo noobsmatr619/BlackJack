@@ -18,7 +18,7 @@ public class Deck {
 	
 	public Deck(){
 		//Create a new deck of playing cards
-		this.cards = new ArrayList<Card>();
+		this.cards = new ArrayList<>();
 	
 	}
 	

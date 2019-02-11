@@ -15,7 +15,7 @@ public class BlackJack {
 
    public static void main(String[] args){
 
-		System.out.println("Welcome to Blackjack!");
+		System.out.println("Lets Play Blackjack!");
 
 		//playingDeck will be the deck the dealer holds
 		Deck playingDeck = new Deck();
@@ -36,12 +36,12 @@ public class BlackJack {
 		//Game loop
 while(money>0){
 	//Take Bet
-	System.out.println("You have $" + money + ", how much would you like to bet?");
+	System.out.println("You have £" + money + ", how much to bet?");
 	double bet = userInput.nextDouble();
 	boolean endRound = false;
 	if(bet > money){
 		//Break if they bet too much
-		System.out.println("You cannot bet more than you have.");
+		System.out.println("Sorry you do not have enough money.");
 		break;
 	}
 
@@ -58,21 +58,21 @@ while(money>0){
 			while(true)
 			{
 				//Display player cards
-				System.out.println("Your Hand:" + playerCards.toString());
+				System.out.println("Card at you hand :" + playerCards.toString());
 
 				//Display Value
-				System.out.println("Your hand is currently valued at: " + playerCards.cardsNumber());
+				System.out.println("Total value in you hand : " + playerCards.cardsNumber());
 
 				//Display dealer cards
-				System.out.println("Dealer Hand: " + dealerCards.cardGetter(0).toString() + " and [hidden]");
+				System.out.println("Dealer has: " + dealerCards.cardGetter(0).toString() + " and [hidden]");
 
 				//What do they want to do
-				System.out.println("Would you like to (1)Hit or (2)Stand");
+				System.out.println("What would you do (1)Hit or (2)Stand");
 				int response = userInput.nextInt();
 				//They hit
 				if(response == 1){
 					playerCards.draw(playingDeck);
-					System.out.println("You draw a:" + playerCards.cardGetter(playerCards.deckSize()-1).toString());
+					System.out.println("You drew a:" + playerCards.cardGetter(playerCards.deckSize()-1).toString());
 					//Bust if they go over 21
 					if(playerCards.cardsNumber() > 21){
 						System.out.println("Bust. Currently valued at: " + playerCards.cardsNumber());
@@ -100,7 +100,7 @@ while(money>0){
 			//Dealer hits at 16 stands at 17
 			while((dealerCards.cardsNumber() < 17) && endRound == false){
 				dealerCards.draw(playingDeck);
-				System.out.println("Dealer draws: " + dealerCards.cardGetter(dealerCards.deckSize()-1).toString());
+				System.out.println("Dealer drew: " + dealerCards.cardGetter(dealerCards.deckSize()-1).toString());
 			}
 			//Display value of dealer
 			System.out.println("Dealers hand value: " + dealerCards.cardsNumber());
