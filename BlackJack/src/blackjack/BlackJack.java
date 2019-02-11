@@ -25,7 +25,7 @@ public class BlackJack {
 		//playerCards will be the cards the player has in their hand
 		Deck playerCards = new Deck();
 		//playerMoney holds players cash - we will be lazy and use doubles instead of bigdecimals
-		double playerMoney = 100.0;
+		double money = 100.0;
 		//dealerCards will be the cards the dealer has in their hand
 		Deck dealerCards = new Deck();
 
@@ -34,12 +34,12 @@ public class BlackJack {
 
 		//Play the game while the player has money
 		//Game loop
-while(playerMoney>0){
+while(money>0){
 	//Take Bet
-	System.out.println("You have $" + playerMoney + ", how much would you like to bet?");
-	double playerBet = userInput.nextDouble();
+	System.out.println("You have $" + money + ", how much would you like to bet?");
+	double bet = userInput.nextDouble();
 	boolean endRound = false;
-	if(playerBet > playerMoney){
+	if(bet > money){
 		//Break if they bet too much
 		System.out.println("You cannot bet more than you have.");
 		break;
@@ -76,7 +76,7 @@ while(playerMoney>0){
 					//Bust if they go over 21
 					if(playerCards.cardsNumber() > 21){
 						System.out.println("Bust. Currently valued at: " + playerCards.cardsNumber());
-						playerMoney -= playerBet;
+						money -= bet;
 						endRound = true;
 						break;
 					}
@@ -94,7 +94,7 @@ while(playerMoney>0){
 			//See if dealer has more points than player
 			if((dealerCards.cardsNumber() > playerCards.cardsNumber())&&endRound == false){
 				System.out.println("Dealer beats you " + dealerCards.cardsNumber() + " to " + playerCards.cardsNumber());
-				playerMoney -= playerBet;
+				money -= bet;
 				endRound = true;
 			}
 			//Dealer hits at 16 stands at 17
@@ -107,7 +107,7 @@ while(playerMoney>0){
 			//Determine if dealer busted
 			if((dealerCards.cardsNumber()>21)&& endRound == false){
 				System.out.println("Dealer Busts. You win!");
-				playerMoney += playerBet;
+				money += bet;
 				endRound = true;
 			}
 			//Determine if push
@@ -118,13 +118,13 @@ while(playerMoney>0){
 			//Determine if player wins
 			if((playerCards.cardsNumber() > dealerCards.cardsNumber()) && endRound == false){
 				System.out.println("You win the hand.");
-				playerMoney += playerBet;
+				money += bet;
 				endRound = true;
 			}
 			else if(endRound == false) //dealer wins
 			{
 				System.out.println("Dealer wins.");
-				playerMoney -= playerBet;
+				money -= bet;
 			}
 
 			//End of hand - put cards back in deck
