@@ -42,7 +42,7 @@ while(money>0){
 	if(bet > money){
 		//Break if they bet too much
 		System.out.println("Sorry you do not have enough money.");
-		break;
+		continue;
 	}
 
 	System.out.println("Dealing...");
