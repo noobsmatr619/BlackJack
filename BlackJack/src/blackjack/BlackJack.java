@@ -16,7 +16,7 @@ public class BlackJack {
    public static void main(String[] args){
 
 		System.out.println("Lets Play Blackjack!");
-
+               //boolean restart= true;
 		//playingDeck will be the deck the dealer holds
 		Deck playingDeck = new Deck();
 		playingDeck.createFullDeck();
@@ -31,10 +31,9 @@ public class BlackJack {
 
 		//Scanner for user input
 		Scanner userInput = new Scanner(System.in);
-
-		//Play the game while the player has money
-		//Game loop
-while(money>0){
+try {
+  //  Block of code to try
+  while(money>0 ){
 	//Take Bet
 	System.out.println("You have £" + money + ", how much to bet?");
 	double bet = userInput.nextDouble();
@@ -133,6 +132,15 @@ while(money>0){
 			System.out.println("End of Hand.");
 
 		}
+}
+catch(Exception e) {
+    System.out.println("Input only Numbers please");
+    main(args);
+   
+}
+		//Play the game while the player has money
+		//Game loop
+
 		//Game is over
 		System.out.println("Game over! You lost all your money. :(");
 
